@@ -5,14 +5,15 @@ import "errors"
 
 // Distance returns the hammingDistance given two sequences of same length
 func Distance(a, b string) (int, error) {
-	var hammingDistance int
-	if len(a) != len(b) {
+	runesA, runesB := []rune(a), []rune(b)
+	if len(runesA) != len(runesB) {
 		return 0, errors.New("can't calculate hamming distance between sequences of different length")
 	}
 
-	for i := range a {
-		if a[i] != b[i] {
-			hammingDistance = hammingDistance + 1
+	hammingDistance := 0
+	for i := 0; i < len(runesA); i++ {
+		if runesA[i] != runesB[i] {
+			hammingDistance++
 		}
 	}
 
