@@ -1,13 +1,24 @@
 // Package isogram contains functons to check isogram existence
 package isogram
 
-import (
-	"unicode"
-)
+import "unicode"
 
-// IsIsogram checks if an string input is an isogram
+// func IsIsogram(word string) bool {
+// 	m := make(map[rune]int)
+
+// 	for _, v := range word {
+// 		v = unicode.ToUpper(v)
+// 		if m[v] == 1 && unicode.IsLetter(v) {
+// 			return false
+// 		}
+// 		m[v] = 1
+// 	}
+// 	return true
+// }
+
+//IsIsogram checks if an string input is an isogram
 func IsIsogram(word string) bool {
-	letters := make([]rune, len(word))
+	letters := make([]rune, 0)
 
 	for _, v := range word {
 		if unicode.IsLetter(v) {
